@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "description": "just a plain npm package wih some dependeciencies and devdependencies",
   "scripts": {
+    "start":"parcel index.html",
+    "build":"parcel build index.html",
     "test": "jest"
   },
   "author": "shivalalprasad",
