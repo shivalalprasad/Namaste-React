@@ -2,7 +2,7 @@ import { APP_LOGO } from "../util/constants"
 
 
 
-export default Header = () => {
+const Header = () => {
   return (
     <header className="text-gray-600 body-font">
       <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
@@ -25,3 +25,6 @@ export default Header = () => {
     </header>
   )
 }
+
+
+export default Header;

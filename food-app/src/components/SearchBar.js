@@ -1,5 +1,5 @@
 
-export default SearchBar = () => {
+const SearchBar = () => {
   return (
     <div className="max-w-md mx-auto mb-8">
       <label htmlFor="default-search" className="mb-2 text-sm font-medium text-gray-900 sr-only">Search</label>
@@ -16,3 +16,5 @@ export default SearchBar = () => {
 
   )
 }
+
+export default SearchBar;

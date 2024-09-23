@@ -1,6 +1,6 @@
 import OrdersItem from "./OrderItem";
 
-export default TotalOrders = () => {
+const TotalOrders = () => {
   return (
     <section className="text-gray-600 body-font">
       <div className="container px-5 py-12 mx-auto">
@@ -14,3 +14,5 @@ export default TotalOrders = () => {
     </section>
   );
 };
+
+export default TotalOrders;

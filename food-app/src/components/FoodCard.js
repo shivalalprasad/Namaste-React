@@ -1,4 +1,4 @@
-export default FoodCard = ({ restaurant }) => {
+const FoodCard = ({ restaurant }) => {
   const discountText = restaurant?.info?.aggregatedDiscountInfoV3?.header || "";
   const discountSubText = restaurant?.info?.aggregatedDiscountInfoV3?.subHeader || "";
   const discountTag = restaurant?.info?.aggregatedDiscountInfoV3?.discountTag || "";
@@ -56,3 +56,5 @@ export default FoodCard = ({ restaurant }) => {
     </div>
   )
 }
+
+export default FoodCard;
