@@ -1,0 +1,16 @@
+import OrdersItem from "./OrderItem";
+
+export default TotalOrders = () => {
+  return (
+    <section className="text-gray-600 body-font">
+      <div className="container px-5 py-12 mx-auto">
+        <div className="flex flex-wrap -m-4 text-center">
+          <OrdersItem name="users" total="14m" />
+          <OrdersItem name="active users" total="10m" />
+          <OrdersItem name="pizzas per day" total="207" />
+          <OrdersItem name="biryani per day" total="564" />
+        </div>
+      </div>
+    </section>
+  );
+};
