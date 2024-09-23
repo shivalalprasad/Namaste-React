@@ -8,7 +8,7 @@ const FoodCard = ({ restaurant }) => {
 
   return (
     <div className="relative mx-auto w-full">
-      <a href={restaurant.cta.link} className="relative inline-block duration-300 ease-in-out transition-transform transform hover:-translate-y-2 w-full">
+      <a href={restaurant.cta.link} target="_blank" className="relative inline-block duration-300 ease-in-out transition-transform transform hover:-translate-y-2 w-full">
         <div className="shadow p-4 rounded-lg bg-white">
           <div className="flex justify-center relative rounded-lg overflow-hidden h-52">
             <div className="transition-transform duration-500 transform ease-in-out hover:scale-110 w-full">
