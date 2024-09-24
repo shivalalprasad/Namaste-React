@@ -10,7 +10,7 @@ const Main = () => {
   useEffect(() => { fetchData() }, [])
 
   var fetchData = async () => {
-    var data = await fetch("https://thingproxy.freeboard.io/fetch/https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.8320833&lng=78.7603726&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+    var data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.8320833&lng=78.7603726&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
     var json = await data.json();
     setRestaurentList(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     setFilteredResList(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
@@ -24,7 +24,7 @@ const Main = () => {
   }
   const [search, setSearch] = useState("");
   console.log(restaurentlist);
-  
+
   return restaurentlist.length === 0 ? (<SuiMain />) : (
     <>
       {/* search bar */}
