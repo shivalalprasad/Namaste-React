@@ -2,6 +2,8 @@ import FoodCard from "./FoodCard"
 // import { restaurentList } from "../util/dummydata"
 import { useEffect, useState } from "react"
 import SuiMain from "./shimmerui/SuiMain";
+import TotalOrders from "./TotalOrders";
+
 
 const Main = () => {
   let [restaurentlist, setRestaurentList] = useState([]);
@@ -9,12 +11,12 @@ const Main = () => {
   useEffect(() => { fetchData() }, [])
 
   var fetchData = async () => {
-    var data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.8320833&lng=78.7603726&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+    var data = await fetch("https://thingproxy.freeboard.io/fetch/https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.8320833&lng=78.7603726&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
     var json = await data.json();
     setRestaurentList(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     setFilteredResList(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
   }
-  const keyHandler=() => {
+  const keyHandler = () => {
     let filtered = restaurentlist.filter((res) =>
       res.info.name.toLowerCase().includes(search.toLowerCase()))
     // console.log(restaurentlist[0].info.name)
@@ -23,7 +25,7 @@ const Main = () => {
   }
   const [search, setSearch] = useState("");
 
-  return filteredResList.length === 0 ? (<SuiMain />) : (
+  return restaurentlist.length === 0 ? (<SuiMain />) : (
     <>
       {/* search bar */}
       <div className="max-w-md mx-auto mb-8">
@@ -53,7 +55,7 @@ const Main = () => {
 
       <div className="flex justify-center mx-auto flex-wrap mb-10">
         <a className="sm:px-6 py-3 w-1/2 sm:w-auto justify-center sm:justify-start border-b-2 title-font font-medium inline-flex items-center leading-none tracking-wider cursor-pointer border-indigo-500 bg-gray-100  rounded-t text-indigo-500"
-          onClick={fetchData} title="all Restaurents"
+          onClick={() => { setFilteredResList(restaurentlist) }} title="all Restaurents"
         >
           All
         </a>
@@ -61,9 +63,8 @@ const Main = () => {
           onClick={() => {
             const topRated = restaurentlist.filter((restaurentList) => restaurentList.info.avgRatingString > 4)
             console.log(topRated);
-            setFilteredResList(topRated);
-          }
-          } title="more than 4 ⭐ rating">
+            topRated.length === 0 ? setFilteredResList(restaurentlist) : setFilteredResList(topRated);
+          }} title="more than 4 ⭐ rating">
           Top Rated
         </a>
       </div>
@@ -73,7 +74,7 @@ const Main = () => {
           <FoodCard key={restaurant.info.id} restaurant={restaurant} />
         ))}
       </div>
-
+      <TotalOrders />
     </>
   )
 }
