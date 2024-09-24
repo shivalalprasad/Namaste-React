@@ -12,7 +12,7 @@ const App = () => {
   return (
     <>
       <Header />
-      <SearchBar />
+      {/* <SearchBar /> */}
       <Main />
       <TotalOrders />
       <Footer />
