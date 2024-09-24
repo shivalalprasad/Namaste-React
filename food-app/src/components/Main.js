@@ -23,7 +23,8 @@ const Main = () => {
     setFilteredResList(filtered);
   }
   const [search, setSearch] = useState("");
-
+  console.log(restaurentlist);
+  
   return restaurentlist.length === 0 ? (<SuiMain />) : (
     <>
       {/* search bar */}
