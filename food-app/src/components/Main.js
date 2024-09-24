@@ -2,7 +2,6 @@ import FoodCard from "./FoodCard"
 // import { restaurentList } from "../util/dummydata"
 import { useEffect, useState } from "react"
 import SuiMain from "./shimmerui/SuiMain";
-import TotalOrders from "./TotalOrders";
 
 
 const Main = () => {
@@ -74,7 +73,6 @@ const Main = () => {
           <FoodCard key={restaurant.info.id} restaurant={restaurant} />
         ))}
       </div>
-      <TotalOrders />
     </>
   )
 }

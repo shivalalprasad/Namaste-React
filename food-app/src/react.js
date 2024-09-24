@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Main from "./components/Main";
+import TotalOrders from "./components/TotalOrders";
 import Footer from "./components/Footer";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom"
 import About from "./components/About";
@@ -15,6 +16,7 @@ const App = () => {
     <>
       <Header />
       <Outlet />
+      <TotalOrders />
       <Footer />
     </>
   );
