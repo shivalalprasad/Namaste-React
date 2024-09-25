@@ -1,3 +1,6 @@
+import { Link } from "react-router-dom";
+import { RES_IMG } from "../util/constants";
+
 const FoodCard = ({ restaurant }) => {
   const discountText = restaurant?.info?.aggregatedDiscountInfoV3?.header || "";
   const discountSubText = restaurant?.info?.aggregatedDiscountInfoV3?.subHeader || "";
@@ -8,12 +11,12 @@ const FoodCard = ({ restaurant }) => {
 
   return (
     <div className="relative mx-auto w-full my-2" title={restaurant.info.name}>
-      <a href={restaurant.cta.link} target="_blank" className="relative inline-block duration-300 ease-in-out transition-transform transform hover:-translate-y-2 w-full">
+      <Link to={"/Restaurent/" + restaurant.info.id} className="relative inline-block duration-300 ease-in-out transition-transform transform hover:-translate-y-2 w-full">
         <div className="shadow p-4 rounded-lg bg-white">
           <div className="flex justify-center relative rounded-lg overflow-hidden h-52">
             <div className="transition-transform duration-500 transform ease-in-out hover:scale-110 w-full">
               <div className="absolute inset-0 bg-black w-full">
-                <img className="h-60 rounded w-full object-cover object-center" src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" + restaurant.info.cloudinaryImageId} alt={restaurant.info.name} />
+                <img className="h-60 rounded w-full object-cover object-center" src={RES_IMG + restaurant.info.cloudinaryImageId} alt={restaurant.info.name} />
               </div>
             </div>
             <span className="absolute top-0 left-0 inline-flex mt-3 ml-3 px-3 py-2 rounded-lg z-10 bg-red-500 text-sm font-medium text-white select-none" title="discount">
@@ -52,7 +55,7 @@ const FoodCard = ({ restaurant }) => {
             </p>
           </div>
         </div>
-      </a>
+      </Link>
     </div>
   )
 }
