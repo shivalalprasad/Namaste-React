@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { ITEM_IMG, RES_IMG } from "../util/constants"
 import { useParams } from "react-router-dom"
+import SuiResMenu from "./shimmerui/SuiResMenu"
 
 
 const ResMenu = () => {
@@ -71,7 +72,7 @@ const ResMenu = () => {
     // console.log(resItemsData1);
   }
 
-  return (
+  return resData.length == 0 || resData == undefined ? <SuiResMenu /> : (
     <>
       <h1 className="text-3xl text-center text-bolder my-6">{resData?.data?.cards[2]?.card?.card?.info.name}</h1>
       <section className="text-gray-600 body-font">
@@ -81,7 +82,7 @@ const ResMenu = () => {
               // <h1 key={item.id} className="text-center w-full text-3xl font-bolder"> {"hello"} </h1>,
               item.card.card.itemCards == undefined ? <h1 className="text-center w-full text-3xl font-bolder"></h1> : item.card.card.itemCards.map((item) => (
                 <div key={item.card?.info?.id} className="lg:w-1/4 md:w-1/2 p-4 w-full">
-                  <a className="block relative h-60 rounded overflow-hidden">
+                  <a className="block bg-gray-300 relative h-60 rounded overflow-hidden">
                     <img alt="ecommerce" className="object-cover object-center w-full h-full block" src={item.card?.info?.imageId ? ITEM_IMG + item.card?.info?.imageId : RES_IMG + resData?.data?.cards[2]?.card?.card?.info.cloudinaryImageId} />
                     {console.log(item)}
                   </a>
