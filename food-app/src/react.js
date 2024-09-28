@@ -9,6 +9,7 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
 import ResMenu from "./components/ResMenu";
+import Team from "./components/Team";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -43,6 +44,10 @@ const AppRouter = createBrowserRouter([
       {
         path: "/Restaurent/:resId",
         element: <ResMenu />,
+      },
+      {
+        path: "/Team",
+        element: <Team />,
       },
     ],
     errorElement: <Error />,

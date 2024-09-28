@@ -80,7 +80,7 @@ const ResMenu = () => {
           <div className="flex flex-wrap -m-4">
             {resItemsData == undefined ? <h1 className="text-center w-full text-3xl font-bolder"> No Menu data found </h1> : resItemsData.map((item) => (
               // <h1 key={item.id} className="text-center w-full text-3xl font-bolder"> {"hello"} </h1>,
-              item.card.card.itemCards == undefined ? <h1 className="text-center w-full text-3xl font-bolder"></h1> : item.card.card.itemCards.map((item) => (
+              item.card.card.itemCards == undefined ? <></> : item.card.card.itemCards.map((item) => (
                 <div key={item.card?.info?.id} className="lg:w-1/4 md:w-1/2 p-4 w-full">
                   <a className="block bg-gray-300 relative h-60 rounded overflow-hidden">
                     <img alt="ecommerce" className="object-cover object-center w-full h-full block" src={item.card?.info?.imageId ? ITEM_IMG + item.card?.info?.imageId : RES_IMG + resData?.data?.cards[2]?.card?.card?.info.cloudinaryImageId} />

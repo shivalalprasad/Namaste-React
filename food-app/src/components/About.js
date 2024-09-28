@@ -1,4 +1,5 @@
-import { ABOUT_IMG } from "../util/constants";
+// import { ABOUT_IMG } from "../util/constants";
+import ABOUT_IMG from "../util/coder.svg"
 
 const About = () => {
   return (
