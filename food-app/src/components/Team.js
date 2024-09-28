@@ -22,15 +22,6 @@ class Team extends React.Component {
             </div>
             <div className="flex flex-wrap -m-4">
               <UserTeam
-                username={"shivalalprasad"}
-                name={"Shivalal Prasad"}
-                role={"Web Dev"}
-                info={"Dev Enthusiastic"}
-                avatar={"https://avatars.githubusercontent.com/u/132836718"}
-                github={"https://github.com/shivalalprasad"}
-                leetcode={"https://leetcode.com/u/shivalalprasad"}
-              />
-              <UserTeam
                 username={"tanyaaa05"}
                 name={"Tanya Singh"}
                 role={" SDE "}
@@ -39,6 +30,15 @@ class Team extends React.Component {
                 // avatar={"https://avatars.githubusercontent.com/u/132836718"}
                 github={"https://github.com/tanyaaa05"}
                 leetcode={"https://leetcode.com/u/tanyaaa005"}
+              />
+              <UserTeam
+                username={"shivalalprasad"}
+                name={"Shivalal Prasad"}
+                role={"Web Dev"}
+                info={"Dev Enthusiastic"}
+                avatar={"https://avatars.githubusercontent.com/u/132836718"}
+                github={"https://github.com/shivalalprasad"}
+                leetcode={"https://leetcode.com/u/shivalalprasad"}
               />
             </div>
           </div>
