@@ -23,21 +23,12 @@ class Team extends React.Component {
             <div className="flex flex-wrap -m-4">
               <UserTeam
                 username={"tanyaaa05"}
-                name={"Tanya Singh"}
-                role={" SDE "}
-                info={"A Software Engineer who loves to build Web Applications, learn new stuff, and play with code."}
-                avatar={"https://avatars.githubusercontent.com/u/154308476"}
-                // avatar={"https://avatars.githubusercontent.com/u/132836718"}
-                github={"https://github.com/tanyaaa05"}
+                role={" CEO "}
                 leetcode={"https://leetcode.com/u/tanyaaa005"}
               />
               <UserTeam
                 username={"shivalalprasad"}
-                name={"Shivalal Prasad"}
-                role={"Web Dev"}
-                info={"Dev Enthusiastic"}
-                avatar={"https://avatars.githubusercontent.com/u/132836718"}
-                github={"https://github.com/shivalalprasad"}
+                role={"CTO"}
                 leetcode={"https://leetcode.com/u/shivalalprasad"}
               />
             </div>
