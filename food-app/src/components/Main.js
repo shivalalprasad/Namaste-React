@@ -63,7 +63,7 @@ const Main = () => {
         </a>
         <a className="sm:px-6 py-3 w-1/2 sm:w-auto justify-center sm:justify-start border-b-2 title-font font-medium inline-flex items-center leading-none tracking-wider cursor-pointer border-gray-200"
           onClick={() => {
-            const topRated = restaurentlist.filter((restaurentList) => restaurentList.info.avgRatingString > 4)
+            const topRated = restaurentlist.filter((restaurentList) => restaurentList.info.avgRatingString > 4).sort((a, b) => b.info.avgRatingString - a.info.avgRatingString)
             console.log(topRated);
             topRated.length === 0 ? setFilteredResList(restaurentlist) : setFilteredResList(topRated);
           }} title="more than 4 ⭐ rating">
