@@ -2,15 +2,47 @@ import FoodCard from "./FoodCard"
 // import { restaurentList } from "../util/dummydata"
 import { useEffect, useState } from "react"
 import SuiMain from "./shimmerui/SuiMain";
+import { useParams } from "react-router-dom";
 
 
 const Main = () => {
   let [restaurentlist, setRestaurentList] = useState([]);
   let [filteredResList, setFilteredResList] = useState([]);
-  useEffect(() => { fetchData() }, [])
+  let [Location, setLocation] = useState()
+  let [latLong, setLatLong] = useState()
+  const { location } = useParams()
+  useEffect(() => {
+    fetchData()
+    if (location === undefined) {
+      // setLocation()
+      setLatLong(Moradabad.latlon)
+    } else if (location === "Hyderabad") {
+      setLatLong(Hyderabad.latlon)
+    } else if (location === "Banglore") {
+      setLatLong(Banglore.latlon)
+    } else if (location === "Gurgaon") {
+      setLatLong(Gurgaon.latlon)
+    }
+  }, [latLong, location])
+  // const locationadd = {
+  const Moradabad = {
+    latlon: "lat=28.8320833&lng=78.7603726"
+  }
+  const Hyderabad = {
+    latlon: "lat=17.4434646&lng=78.3771953"
+  }
+  const Banglore = {
+    latlon: "lat=12.9715987&lng=77.5945627"
+  }
+  const Gurgaon = {
+    latlon: "lat=28.4594965&lng=77.0266383"
+  }
+
+
 
   var fetchData = async () => {
-    var data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.8320833&lng=78.7603726&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+    var data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?" + latLong);
+    console.log(latLong)
     // var data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.4434646&lng=78.3771953&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
     var json = await data.json();
     setRestaurentList(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
@@ -24,7 +56,6 @@ const Main = () => {
     setFilteredResList(filtered);
   }
   const [search, setSearch] = useState("");
-  console.log(restaurentlist);
 
   return restaurentlist == undefined || restaurentlist.length === 0 ? (<SuiMain />) : (
     <>

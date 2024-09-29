@@ -34,6 +34,10 @@ const AppRouter = createBrowserRouter([
         element: <Main />,
       },
       {
+        path: "/:location",
+        element: <Main />,
+      },
+      {
         path: "/About",
         element: <About />,
       },

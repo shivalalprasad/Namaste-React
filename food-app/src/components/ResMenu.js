@@ -11,6 +11,8 @@ const ResMenu = () => {
   const [resData, setResData] = useState([])
   const [resItemsData, setResItemsData] = useState([])
   const { resId } = useParams()
+  console.log(resId);
+
 
   const fechRes = async () => {
     var data = await fetch("https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.8320833&lng=78.7603726&restaurantId=" + resId);
@@ -22,6 +24,7 @@ const ResMenu = () => {
   return resData.length == 0 || resData == undefined ? <SuiResMenu /> : (
     <>
       <h1 className="text-3xl text-center text-bolder my-6">{resData?.data?.cards[2]?.card?.card?.info.name}</h1>
+      {console.log(resData?.data?.cards[2]?.card?.card?.info)}
       <section className="text-gray-600 body-font">
         <div className="container px-5 py-24 mx-auto">
           <div className="flex flex-wrap -m-4">
