@@ -18,8 +18,8 @@ const Main = () => {
       setLatLong(Moradabad.latlon)
     } else if (location === "Hyderabad") {
       setLatLong(Hyderabad.latlon)
-    } else if (location === "Banglore") {
-      setLatLong(Banglore.latlon)
+    } else if (location === "Bengaluru") {
+      setLatLong(Bengaluru.latlon)
     } else if (location === "Gurgaon") {
       setLatLong(Gurgaon.latlon)
     }
@@ -31,7 +31,7 @@ const Main = () => {
   const Hyderabad = {
     latlon: "lat=17.4434646&lng=78.3771953"
   }
-  const Banglore = {
+  const Bengaluru = {
     latlon: "lat=12.9715987&lng=77.5945627"
   }
   const Gurgaon = {
