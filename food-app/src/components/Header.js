@@ -17,6 +17,7 @@ const Header = () => {
           <Link to="/Hyderabad" className="cursor-pointer mr-5  hover:text-gray-900">Hyderabad</Link>
           <Link to="/Bengaluru" className="cursor-pointer mr-5  hover:text-gray-900">Bengaluru</Link>
           <Link to="/Gurgaon" className="cursor-pointer mr-5  hover:text-gray-900">Gurgaon</Link>
+          <Link to="/Delhi" className="cursor-pointer mr-5  hover:text-gray-900">Delhi</Link>
           <Link to="/About" className="cursor-pointer mr-5  hover:text-gray-900">About</Link>
           <Link to='/Contact' className="cursor-pointer mr-5 hover:text-gray-900">Contact Us</Link>
           <Link to='/Team' className="cursor-pointer mr-5 hover:text-gray-900">Our Team</Link>

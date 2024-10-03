@@ -22,6 +22,8 @@ const Main = () => {
       setLatLong(Bengaluru.latlon)
     } else if (location === "Gurgaon") {
       setLatLong(Gurgaon.latlon)
+    } else if (location === "Delhi") {
+      setLatLong(Delhi.latlon)
     }
   }, [latLong, location])
   // const locationadd = {
@@ -36,6 +38,9 @@ const Main = () => {
   }
   const Gurgaon = {
     latlon: "lat=28.4594965&lng=77.0266383"
+  }
+  const Delhi = {
+    latlon: "lat=28.7040592&lng=77.10249019999999"
   }
 
 
