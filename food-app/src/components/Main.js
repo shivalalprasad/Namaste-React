@@ -12,6 +12,7 @@ const Main = () => {
   let [latLong, setLatLong] = useState()
   const { location } = useParams()
   useEffect(() => {
+setRestaurentList([])
     fetchData()
     if (location === undefined) {
       // setLocation()
