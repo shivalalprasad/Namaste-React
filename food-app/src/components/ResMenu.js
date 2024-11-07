@@ -1,27 +1,16 @@
-import { useEffect, useState } from "react"
-import { ITEM_IMG, MENU_API, RES_IMG } from "../util/constants"
+import { ITEM_IMG, RES_IMG } from "../util/constants"
 import { useParams } from "react-router-dom"
 import SuiResMenu from "./shimmerui/SuiResMenu"
+import { useResMenu, useResItemsData } from "../util/useResMenu"
 
 
 const ResMenu = () => {
-  useEffect(() => {
-    fechRes()
-  }, [])
-  const [resData, setResData] = useState([])
-  const [resItemsData, setResItemsData] = useState([])
   const { resId } = useParams()
-  console.log(resId);
+  const resData = useResMenu(resId)
 
+  const resItemsData = useResItemsData(resId)
 
-  const fechRes = async () => {
-    var data = await fetch( MENU_API + resId);
-    var json = await data.json();
-    setResData(json)
-    setResItemsData(json?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards)
-  }
-
-  return resData.length == 0 || resData == undefined ? <SuiResMenu /> : (
+  return resData == null ? <SuiResMenu /> : (
     <>
       <h1 className="text-3xl text-center text-bolder my-6">{resData?.data?.cards[2]?.card?.card?.info.name}</h1>
       {console.log(resData?.data?.cards[2]?.card?.card?.info)}
