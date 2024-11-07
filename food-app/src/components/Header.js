@@ -1,9 +1,10 @@
 import { APP_LOGO } from "../util/constants"
 import { useState } from 'react';
 import { Link } from "react-router-dom";
-
+import {useOnline} from '../util/useOnline'
 
 const Header = () => {
+  const isOnline = useOnline();
   const [isUser, setIsUser] = useState("Login");
   return (
     <header className="text-gray-600 body-font">
@@ -13,6 +14,7 @@ const Header = () => {
           <span className="ml-3 text-xl">Tomato</span>
         </Link>
         <nav className="md:ml-auto flex flex-wrap items-center text-base justify-center">
+        <Link className="cursor-pointer mr-5  hover:text-gray-900">🛜 : {isOnline?"🟢":"🔴"}</Link>
           <Link to="/" className="cursor-pointer mr-5  hover:text-gray-900">Moradabad</Link>
           <Link to="/Hyderabad" className="cursor-pointer mr-5  hover:text-gray-900">Hyderabad</Link>
           <Link to="/Bengaluru" className="cursor-pointer mr-5  hover:text-gray-900">Bengaluru</Link>
@@ -21,6 +23,7 @@ const Header = () => {
           <Link to="/About" className="cursor-pointer mr-5  hover:text-gray-900">About</Link>
           <Link to='/Contact' className="cursor-pointer mr-5 hover:text-gray-900">Contact Us</Link>
           <Link to='/Team' className="cursor-pointer mr-5 hover:text-gray-900">Our Team</Link>
+          <Link to='/Grocery' className="cursor-pointer mr-5 hover:text-gray-900">Grocery</Link>
           <a className="cursor-pointer mr-5 hover:text-gray-900">Cart</a>
         </nav>
         <button className="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0"
