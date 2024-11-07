@@ -1,7 +1,7 @@
 import { ITEM_IMG, RES_IMG } from "../util/constants"
 import { useParams } from "react-router-dom"
 import SuiResMenu from "./shimmerui/SuiResMenu"
-import { useResMenu, useResItemsData } from "../util/useResMenu"
+import { useResMenu, useResItemsData } from "../util/useRes"
 
 
 const ResMenu = () => {
