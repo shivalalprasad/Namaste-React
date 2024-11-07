@@ -8,3 +8,5 @@ export const ITEM_IMG = "https://media-assets.swiggy.com/swiggy/image/upload/fl_
 
 export const GIT_HUB_USER_API = "https://api.github.com/users/"
 export const GIT_HUB_USER = "https://github.com/"
+
+export const MENU_API = "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.8320833&lng=78.7603726&restaurantId="

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { ITEM_IMG, RES_IMG } from "../util/constants"
+import { ITEM_IMG, MENU_API, RES_IMG } from "../util/constants"
 import { useParams } from "react-router-dom"
 import SuiResMenu from "./shimmerui/SuiResMenu"
 
@@ -15,7 +15,7 @@ const ResMenu = () => {
 
 
   const fechRes = async () => {
-    var data = await fetch("https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.8320833&lng=78.7603726&restaurantId=" + resId);
+    var data = await fetch( MENU_API + resId);
     var json = await data.json();
     setResData(json)
     setResItemsData(json?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards)
