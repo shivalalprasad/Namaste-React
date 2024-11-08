@@ -12,6 +12,7 @@ export const useResMenu = (resId) => {
     var data = await fetch( MENU_API + resId);
     var json = await data.json();
     setResData(json)
+    console.log(json)
   }
 
   return resData;

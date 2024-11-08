@@ -5,10 +5,10 @@ const FoodCard = ({ restaurant }) => {
   const discountText = restaurant?.info?.aggregatedDiscountInfoV3?.header || "";
   const discountSubText = restaurant?.info?.aggregatedDiscountInfoV3?.subHeader || "";
   const discountTag = restaurant?.info?.aggregatedDiscountInfoV3?.discountTag || "";
-  const discountMessage = discountText
-    ? `${discountText} ${discountSubText} ${discountTag}`
-    : "₹100 OFF ABOVE ₹299";
-  console.log(restaurant)
+  // const discountMessage = discountText
+  //   ? `${discountText} ${discountSubText} ${discountTag}`
+  //   : "₹100 OFF ABOVE ₹299";
+  // console.log(restaurant)
   return (
     <div className="relative mx-auto w-full my-2" title={restaurant.info.name}>
     {restaurant.info.promoted ?<span className="absolute bottom-2 left-0 inline-flex mt-3 ml-3 px-3 py-2 rounded-lg z-10 bg-Emerald-600 text-sm font-medium text-white select-none" title="cost for two">Promoted</span>:""}
