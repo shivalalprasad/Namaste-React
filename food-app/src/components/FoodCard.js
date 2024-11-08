@@ -8,9 +8,10 @@ const FoodCard = ({ restaurant }) => {
   const discountMessage = discountText
     ? `${discountText} ${discountSubText} ${discountTag}`
     : "₹100 OFF ABOVE ₹299";
-
+  console.log(restaurant)
   return (
     <div className="relative mx-auto w-full my-2" title={restaurant.info.name}>
+    {restaurant.info.promoted ?<span className="absolute bottom-2 left-0 inline-flex mt-3 ml-3 px-3 py-2 rounded-lg z-10 bg-Emerald-600 text-sm font-medium text-white select-none" title="cost for two">Promoted</span>:""}
       <Link to={"/Restaurent/" + restaurant.info.id} className="relative inline-block duration-300 ease-in-out transition-transform transform hover:-translate-y-2 w-full">
         <div className="shadow p-4 rounded-lg bg-white">
           <div className="flex justify-center relative rounded-lg overflow-hidden h-52">
@@ -19,11 +20,12 @@ const FoodCard = ({ restaurant }) => {
                 <img className="h-60 rounded w-full object-cover object-center" src={RES_IMG + restaurant.info.cloudinaryImageId} alt={restaurant.info.name} />
               </div>
             </div>
-            <span className="absolute top-0 left-0 inline-flex mt-3 ml-3 px-3 py-2 rounded-lg z-10 bg-red-500 text-sm font-medium text-white select-none" title="discount">
+            {/* <span className="absolute top-0 left-0 inline-flex mt-3 ml-3 px-3 py-2 rounded-lg z-10 bg-red-500 text-sm font-medium text-white select-none" title="discount">
               {discountMessage}
-            </span>
-            {
-            }
+            </span> */}
+            {restaurant?.info?.aggregatedDiscountInfoV3?.header || restaurant?.info?.aggregatedDiscountInfoV3?.subHeader || restaurant?.info?.aggregatedDiscountInfoV3?.discountTag ? <span className="absolute top-0 left-0 inline-flex mt-3 ml-3 px-3 py-2 rounded-lg z-10 bg-red-500 text-sm font-medium text-white select-none" title="discount">
+              {discountText} {discountSubText} {discountTag}
+            </span>:""}
             <span className="absolute bottom-2 left-0 inline-flex mt-3 ml-3 px-3 py-2 rounded-lg z-10 bg-blue-500 text-sm font-medium text-white select-none" title="cost for two">
               {restaurant.info.costForTwo}
             </span>
