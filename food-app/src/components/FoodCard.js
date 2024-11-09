@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { RES_IMG } from "../util/constants";
+import { CLOUDINARY_IMAGE_ID } from "../util/constants";
 
 const FoodCard = ({ restaurant }) => {
   const discountText = restaurant?.info?.aggregatedDiscountInfoV3?.header || "";
@@ -17,7 +17,7 @@ const FoodCard = ({ restaurant }) => {
           <div className="flex justify-center relative rounded-lg overflow-hidden h-52">
             <div className="transition-transform duration-500 transform ease-in-out hover:scale-110 w-full">
               <div className="absolute inset-0 bg-black w-full">
-                <img className="h-60 rounded w-full object-cover object-center" src={RES_IMG + restaurant.info.cloudinaryImageId} alt={restaurant.info.name} />
+                <img className="h-60 rounded w-full object-cover object-center" src={CLOUDINARY_IMAGE_ID + restaurant.info.cloudinaryImageId} alt={restaurant.info.name} />
               </div>
             </div>
             {/* <span className="absolute top-0 left-0 inline-flex mt-3 ml-3 px-3 py-2 rounded-lg z-10 bg-red-500 text-sm font-medium text-white select-none" title="discount">
