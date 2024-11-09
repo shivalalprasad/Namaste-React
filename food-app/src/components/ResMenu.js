@@ -8,8 +8,8 @@ import ItemsSection from "./ItemSection"
 const ResMenu = () => {
   const { resId } = useParams()
   const [resData, resItemsData] = useResMenu(resId)
-  console.log(resData)
-  console.log(resItemsData)
+  // console.log(resData)
+  // console.log(resItemsData)
   return resItemsData == null && resData === null ? <SuiResMenu /> : (
     <>
 
