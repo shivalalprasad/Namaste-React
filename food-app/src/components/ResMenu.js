@@ -22,7 +22,7 @@ const ResMenu = () => {
             <p className="lg:w-1/2 w-full leading-relaxed text-gray-500">{resData.cuisines.join(",")}</p>
           </div>
           {resItemsData?.map((resItem,index) => <ItemsSection data={resItem} index={index} showList={index === showIndex ? true : false}
-          setShowIndex={() => setShowIndex(index)} showIndex = {showIndex}
+          setShowIndex={() => {showIndex===index ?setShowIndex():setShowIndex(index)}} showIndex = {showIndex}
           />)}
         </div>
       </section>
