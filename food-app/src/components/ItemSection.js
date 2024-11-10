@@ -20,7 +20,7 @@ const ItemsSection = ({data,index,showList,setShowIndex,showIndex}) => {
     <div>
       <div onClick={toogleitems} key={index} className="border-b-4 cursor-pointer bg-gray-100 p-2 rounded-sm w-[75%] mx-auto flex justify-between">
         <h2 className="w-full mx-auto text-2xl text-bolder my-6 text-bold text-black mt-6 px-4">{data?.card?.card?.title} ({data?.card?.card.itemCards.length})</h2>
-        <div className="text-3xl my-6 mt-6 pr-8 w-5">{open ? "⇑" : "⇓"}</div>
+        <div className="text-3xl my-6 mt-6 pr-8 w-5">{index===showIndex ? "⇑" : "⇓"}</div>
       </div>
       <div>
 
