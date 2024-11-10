@@ -1,13 +1,12 @@
 import { useState } from "react";
 import { CLOUDINARY_IMAGE_ID } from "../util/constants";
 
-const ItemsSection = (ItemCategory) => {
-  const [open, close] = useState(false)
+const ItemsSection = ({data,index,showList,setShowIndex,showIndex}) => {
   const toogleitems = () => {
-    close(!open);
+    index===showIndex ? setShowIndex('') :setShowIndex(index);
   }
   // console.log(ItemCategory?.data?.card?.card?.itemCards)
-  items = ItemCategory?.data?.card?.card?.itemCards;
+  items = data?.card?.card?.itemCards;
   // console.log(items)
   // <div key={index}>
   //   {name}
@@ -20,13 +19,13 @@ const ItemsSection = (ItemCategory) => {
   // </div>
   return (
     <div>
-      <div onClick={toogleitems} className="border-b-4 cursor-pointer bg-gray-100 p-2 rounded-sm w-[75%] mx-auto flex justify-between">
-        <h2 className="w-full mx-auto text-2xl text-bolder my-6 text-bold text-black mt-6 px-4">{ItemCategory?.data?.card?.card?.title}</h2>
+      <div onClick={toogleitems} key={index} className="border-b-4 cursor-pointer bg-gray-100 p-2 rounded-sm w-[75%] mx-auto flex justify-between">
+        <h2 className="w-full mx-auto text-2xl text-bolder my-6 text-bold text-black mt-6 px-4">{data?.card?.card?.title} ({data?.card?.card.itemCards.length})</h2>
         <div className="text-3xl my-6 mt-6 pr-8 w-5">{open ? "⇑" : "⇓"}</div>
       </div>
       <div>
 
-        {open ? <div>{items.map((item, index) => {
+        {showList && <div>{items.map((item, index) => {
           const { name, description, isVeg, imageId, defaultPrice, price, finalPrice, ribbon } = item?.card?.info;
           const { rating, ratingCountV2 } = item?.card?.info?.ratings?.aggregatedRating;
 
@@ -56,7 +55,7 @@ const ItemsSection = (ItemCategory) => {
               </div>
             </>
           )
-        })}</div> : ""}
+        })}</div>}
       </div>
     </div>
   )
