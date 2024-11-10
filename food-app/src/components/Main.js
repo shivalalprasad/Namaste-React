@@ -1,54 +1,23 @@
 import FoodCard from "./FoodCard"
 // import { restaurentList } from "../util/dummydata"
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import SuiMain from "./shimmerui/SuiMain";
-import { useParams } from "react-router-dom";
+import userInfo from "../util/userInfo";
 
 
 const Main = () => {
+  const { logedInUserName, setUserName } = useContext(userInfo)
   let [restaurentlist, setRestaurentList] = useState([]);
   let [filteredResList, setFilteredResList] = useState([]);
-  let [Location, setLocation] = useState()
-  let [latLong, setLatLong] = useState()
-  const { location } = useParams()
   useEffect(() => {
-setRestaurentList([])
+    setRestaurentList([])
     fetchData()
-    if (location === undefined) {
-      // setLocation()
-      setLatLong(Moradabad.latlon)
-    } else if (location === "Hyderabad") {
-      setLatLong(Hyderabad.latlon)
-    } else if (location === "Bengaluru") {
-      setLatLong(Bengaluru.latlon)
-    } else if (location === "Gurgaon") {
-      setLatLong(Gurgaon.latlon)
-    } else if (location === "Delhi") {
-      setLatLong(Delhi.latlon)
-    }
-  }, [latLong, location])
-  // const locationadd = {
-  const Moradabad = {
-    latlon: "lat=28.8320833&lng=78.7603726"
-  }
-  const Hyderabad = {
-    latlon: "lat=17.4434646&lng=78.3771953"
-  }
-  const Bengaluru = {
-    latlon: "lat=12.9715987&lng=77.5945627"
-  }
-  const Gurgaon = {
-    latlon: "lat=28.4594965&lng=77.0266383"
-  }
-  const Delhi = {
-    latlon: "lat=28.7040592&lng=77.10249019999999"
-  }
+  }, [])
 
 
 
   var fetchData = async () => {
-    var data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?" + latLong);
-    console.log(latLong)
+    var data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.8320833&lng=78.7603726");
     // var data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.4434646&lng=78.3771953&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
     var json = await data.json();
     setRestaurentList(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
@@ -62,7 +31,7 @@ setRestaurentList([])
     setFilteredResList(filtered);
   }
   const [search, setSearch] = useState("");
-
+  const [user, setUser] = useState(logedInUserName);
   return restaurentlist == undefined || restaurentlist.length === 0 ? (<SuiMain />) : (
     <>
       {/* search bar */}
@@ -89,6 +58,14 @@ setRestaurentList([])
               setFilteredResList(filtered);
             }}
           >Search</button>
+        </div>
+        <div className="relative">
+          <input type="search" id="default-search" className="block w-full  p-4 text-sm text-gray-900 border border-gray-300 rounded-lg focus:outline-none bg-gray-50 focus:ring-blue-500 focus:border-blue-500 " required
+            value={logedInUserName}
+            onChange={(e) => { setUserName(e.target.value) }}
+          />
+          <button className="text-white absolute end-2.5 bottom-2.5 bg-slate-700 hover:bg-slate-800 focus:ring-4 focus:outline-none focus:ring-slate-300 font-medium rounded-lg text-sm px-4 py-2"
+          >Set User</button>
         </div>
       </div>
 

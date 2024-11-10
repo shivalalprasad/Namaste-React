@@ -1,20 +1,27 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useContext, useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom"
 import Header from "./components/Header";
 import Main from "./components/Main";
 import TotalOrders from "./components/TotalOrders";
 import Footer from "./components/Footer";
-import About from "./components/About";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
 import ResMenu from "./components/ResMenu";
 import Team from "./components/Team";
+import userInfo from "./util/userInfo";
 // import {useOnline} from './util/useOnline'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-const Grocery = lazy(()=>import('./components/Grocery'))
+const About = lazy(()=>import('./components/About'))
 const App = () => {
+  const [userName,setUserName] = useState(userInfo.userName)
+  const {Author} = useContext(userInfo)
+  useEffect(()=>{
+    // User Info
+    const data = {user: "~ "+".dev"}
+    setUserName(data.user)
+  },[])
   // const internet = useOnline()
 //   if(internet===false) {
 //     return(
@@ -29,10 +36,12 @@ const App = () => {
   // }
   return (
     <>
+    <userInfo.Provider value={{logedInUserName:userName,setUserName,Author}}  >
       <Header />
       <Outlet />
       <TotalOrders />
       <Footer />
+      </userInfo.Provider>
     </>
   );
 };
@@ -47,12 +56,8 @@ const AppRouter = createBrowserRouter([
         element: <Main />,
       },
       {
-        path: "/:location",
-        element: <Main />,
-      },
-      {
         path: "/About",
-        element: <About />,
+        element: <Suspense fallback={<h1>fast....</h1>}><About /></Suspense>,
       },
       {
         path: "/Contact",
@@ -65,10 +70,6 @@ const AppRouter = createBrowserRouter([
       {
         path: "/Team",
         element: <Team />,
-      },
-      {
-        path: "/Grocery",
-        element: <Suspense fallback={<h1>fast....</h1>}><Grocery /></Suspense>,
       },
     ],
     errorElement: <Error />,

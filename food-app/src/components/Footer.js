@@ -1,10 +1,14 @@
+import { useContext } from "react";
+import userInfo from "../util/userInfo";
+
 const Footer = () => {
+  const {Author} = useContext(userInfo)
   return (
     <footer className="text-gray-600 body-font">
       <div className="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
         <a className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
           <img className="rounded-full" src="https://b.zmtcdn.com/data/o2_assets/5376b760d3b12ca9af29fc8f4e1847e71717417610.png" alt="logo" />
-          <span className="ml-3 text-xl">Tomato</span>
+          <span className="ml-3 text-xl">Tomato - By {Author}</span>
         </a>
         <p className="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">© 2024 Tomato —
           <a className="text-gray-600 ml-1 cursor-pointer" rel="noopener noreferrer" target="_blank">@tomato</a>
