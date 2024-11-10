@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { CLOUDINARY_IMAGE_ID } from "../util/constants";
 
 const ItemsSection = ({data,index,showList,setShowIndex,showIndex}) => {
@@ -6,7 +5,7 @@ const ItemsSection = ({data,index,showList,setShowIndex,showIndex}) => {
     index===showIndex ? setShowIndex('') :setShowIndex(index);
   }
   // console.log(ItemCategory?.data?.card?.card?.itemCards)
-  items = data?.card?.card?.itemCards;
+  const items = data?.card?.card?.itemCards;
   // console.log(items)
   // <div key={index}>
   //   {name}
