@@ -1,4 +1,3 @@
-// import { ABOUT_IMG } from "../util/constants";
 import { useContext } from "react";
 import ABOUT_IMG from "../util/coder.svg"
 import userInfo from "../util/userInfo";

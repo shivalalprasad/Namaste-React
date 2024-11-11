@@ -27,7 +27,7 @@
           <h2 className="font-semibold  text-sm md:text-base text-gray-800 line-clamp-1 w-28 h-5 bg-gray-200 rounded-lg mt-2">
 
           </h2>
-          <p className="mt-2 text-sm text-gray-800 line-clamp-1 h-5 w-full bg-gray-100 rounded-lg mt-2">
+          <p className="mt-2 text-sm text-gray-800 line-clamp-1 h-5 w-full bg-gray-100 rounded-lg">
 
           </p>
         </div>

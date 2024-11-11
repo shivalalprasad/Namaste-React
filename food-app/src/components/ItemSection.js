@@ -4,18 +4,7 @@ const ItemsSection = ({data,index,showList,setShowIndex,showIndex}) => {
   const toogleitems = () => {
     index===showIndex ? setShowIndex('') :setShowIndex(index);
   }
-  // console.log(ItemCategory?.data?.card?.card?.itemCards)
   const items = data?.card?.card?.itemCards;
-  // console.log(items)
-  // <div key={index}>
-  //   {name}
-  //   <p>{description}</p>
-  //   {/* {showImage && imageId ? <img src={CLOUDINARY_IMAGE_ID+imageId} alt={name}/>:""} */}
-  //   <p>{isVeg ? "🟢 VEG" : "🔴 NON-VEG"}</p>
-  //   <p>{finalPrice ? finalPrice / 100 : price ? price / 100 : defaultPrice / 100}</p>
-  //   {ribbon?.text ? <div className="bg-red-500 text-white px-2 py-1 rounded-full">{ribbon.text}</div> : ""}
-  //   {rating ? <div> ⭐ {rating}({ratingCountV2}) </div> : ""}
-  // </div>
   return (
     <div>
       <div onClick={toogleitems} key={index} className="border-b-4 cursor-pointer bg-gray-100 p-2 rounded-sm w-[75%] mx-auto flex justify-between">

@@ -1,5 +1,4 @@
 import FoodCard from "./FoodCard"
-// import { restaurentList } from "../util/dummydata"
 import { useContext, useEffect, useState } from "react"
 import SuiMain from "./shimmerui/SuiMain";
 import userInfo from "../util/userInfo";
@@ -18,7 +17,6 @@ const Main = () => {
 
   var fetchData = async () => {
     var data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.8320833&lng=78.7603726");
-    // var data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.4434646&lng=78.3771953&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
     var json = await data.json();
     setRestaurentList(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     setFilteredResList(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
@@ -26,15 +24,12 @@ const Main = () => {
   const keyHandler = () => {
     let filtered = restaurentlist.filter((res) =>
       res.info.name.toLowerCase().includes(search.toLowerCase()))
-    // console.log(restaurentlist[0].info.name)
-    console.log(filtered)
     setFilteredResList(filtered);
   }
   const [search, setSearch] = useState("");
   const [user, setUser] = useState(logedInUserName);
   return restaurentlist == undefined || restaurentlist.length === 0 ? (<SuiMain />) : (
     <>
-      {/* search bar */}
       <div className="max-w-md mx-auto mb-8">
         <label htmlFor="default-search" className="mb-2 text-sm font-medium text-gray-900 sr-only">Search</label>
         <div className="relative">
@@ -53,8 +48,6 @@ const Main = () => {
               let filtered = restaurentlist.filter((res) =>
                 res.info.name.toLowerCase().includes(search.toLowerCase())) && restaurentlist.filter((res) =>
                   res.info.areaName.toLowerCase().includes(search.toLowerCase()))
-              // console.log(restaurentlist[0].info.name)
-              console.log(filtered);
               setFilteredResList(filtered);
             }}
           >Search</button>

@@ -15,9 +15,6 @@ class UserTeam extends Component {
     const data = await fetch(GIT_HUB_USER_API + this.props.username);
     let json = await data.json();
     console.log(json)
-    // this.setState({
-    //   user: json,
-    // })
     this.setState({
       user: json,
     })
