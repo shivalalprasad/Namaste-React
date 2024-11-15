@@ -1,4 +1,4 @@
-import React, { lazy, Suspense, useContext, useEffect, useState } from "react";
+import { lazy, Suspense, useContext, useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom"
 import Header from "./components/Header";
@@ -12,6 +12,7 @@ import Team from "./components/Team";
 import userInfo from "./util/userInfo";
 import { Provider } from "react-redux";
 import store from "./util/store/store";
+import "./index.css";
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const About = lazy(()=>import('./components/About'))
 const App = () => {
