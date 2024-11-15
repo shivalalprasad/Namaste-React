@@ -10,8 +10,8 @@ import Error from "./components/Error";
 import ResMenu from "./components/ResMenu";
 import Team from "./components/Team";
 import userInfo from "./util/userInfo";
-import { Provider } from "react-redux";
-import store from "./util/store/store";
+// import { Provider } from "react-redux";
+// import store from "./util/store/store";
 import "./index.css";
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const About = lazy(()=>import('./components/About'))
@@ -24,14 +24,14 @@ const App = () => {
   },[])
   return (
     <>
-    <Provider store={store}>
+    {/* <Provider store={store}> */}
     <userInfo.Provider value={{logedInUserName:userName,setUserName,Author}}  >
       <Header />
       <Outlet />
       <TotalOrders />
       <Footer />
       </userInfo.Provider>
-      </Provider>
+      {/* </Provider> */}
     </>
   );
 };
